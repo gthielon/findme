@@ -1,0 +1,17 @@
+FindMeBundle\Entity\Game:
+    type: entity
+    table: null
+    repositoryClass: FindMeBundle\Repository\GameRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        photo:
+            type: text
+        indice:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
