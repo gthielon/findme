@@ -11,6 +11,7 @@ FindMeBundle\Entity\User:
     fields:
         points:
             type: integer
+            nullable: true
 
     lifecycleCallbacks: {  }
 
@@ -18,7 +19,6 @@ FindMeBundle\Entity\User:
         winners:
             targetEntity: Game
             mappedBy: winner
-
         authors:
             targetEntity: Game
             mappedBy: author

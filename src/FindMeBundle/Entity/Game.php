@@ -142,5 +142,33 @@ class Game
     {
         return $this->author;
     }
-}
+    /**
+     * @var \FindMeBundle\Entity\Level
+     */
+    private $level;
 
+
+    /**
+     * Set level
+     *
+     * @param \FindMeBundle\Entity\Level $level
+     *
+     * @return Game
+     */
+    public function setLevel(\FindMeBundle\Entity\Level $level = null)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * Get level
+     *
+     * @return \FindMeBundle\Entity\Level
+     */
+    public function getLevel()
+    {
+        return $this->level;
+    }
+}
