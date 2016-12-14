@@ -8,4 +8,30 @@ FindMeBundle\Entity\User:
             id: true
             generator:
                 strategy: AUTO
+    fields:
+        points:
+            type: integer
+
     lifecycleCallbacks: {  }
+
+    oneToMany:
+        winners:
+            targetEntity: Game
+            mappedBy: winner
+
+        authors:
+            targetEntity: Game
+            mappedBy: author
+
+    manyToMany:
+        clusters:
+            targetEntity: Cluster
+            inversedBy: users
+            joinTable:
+                name: users_clusters
+                joinColumns:
+                    user_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    cluster_id:
+                        referencedColumnName: id
