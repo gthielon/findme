@@ -9,3 +9,8 @@ FindMeBundle\Entity\Level:
             generator:
                 strategy: AUTO
     lifecycleCallbacks: {  }
+
+    oneToMany:
+        levels:
+            targetEntity: Game
+            mappedBy: level

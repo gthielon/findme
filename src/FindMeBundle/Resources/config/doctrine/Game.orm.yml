@@ -23,3 +23,6 @@ FindMeBundle\Entity\Game:
         author:
             targetEntity: User
             inversedBy: authors
+        level:
+            targetEntity: Level
+            inversedBy: levels
