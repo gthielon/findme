@@ -9,6 +9,9 @@ FindMeBundle\Entity\Game:
             generator:
                 strategy: AUTO
     fields:
+        name:
+            type: string
+            length: 255
         photo:
             type: text
         indice:

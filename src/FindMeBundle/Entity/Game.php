@@ -15,6 +15,11 @@ class Game
     /**
      * @var string
      */
+    private $name;
+
+    /**
+     * @var string
+     */
     private $photo;
 
     /**
@@ -31,6 +36,22 @@ class Game
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
     }
 
     /**

@@ -27,6 +27,7 @@ class User extends BaseUser
     }
     /**
      * @var integer
+     *
      */
     private $points;
 
