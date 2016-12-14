@@ -82,6 +82,8 @@ class Game
     }
 
 
+
+
     /**
      * @var \FindMeBundle\Entity\User
      */
@@ -170,4 +172,3 @@ class Game
         return $this->level;
     }
 }
-
