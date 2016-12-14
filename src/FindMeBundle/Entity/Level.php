@@ -22,6 +22,7 @@ class Level
     {
         return $this->id;
     }
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
