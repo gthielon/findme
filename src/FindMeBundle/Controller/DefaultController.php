@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('FindMeBundle:Default:index.html.twig');
     }
+
+    public function partieAction()
+    {
+        return $this->render('FindMeBundle:Default:partie.html.twig');
+    }
 }
