@@ -1,0 +1,4 @@
+find_me:
+    resource: "@FindMeBundle/Resources/config/routing.yml"
+    prefix:   /
+
