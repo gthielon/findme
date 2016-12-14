@@ -1,5 +1,5 @@
 find_me_homepage:
-    path:     /
+    path:     /presentation
     defaults: { _controller: FindMeBundle:Default:index }
 
 find_me_profil:

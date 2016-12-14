@@ -8,6 +8,6 @@ class ProfilController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('FindMeBundle::profil.html.twig');
+        return $this->render('@FindMe/profil.html.twig');
     }
 }
