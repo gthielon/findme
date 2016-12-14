@@ -23,7 +23,7 @@ class Cluster
         return $this->id;
     }
 
-}
+
 
 
     /**
