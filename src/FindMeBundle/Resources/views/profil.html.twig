@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h4 class="row">
+        <h6>
+            Votre profil
+        </h6>
+    </div>
+    <div class="row contenu">
+        <div class="col offset-s1 s10">
+            <div class="col offset-s10 s1 divPhotoProfil">
+                <img class="photoProfil" src="{{ asset ('bundles/findme/images/chevre.jpg') }}" alt="profil">
+            </div>
+            <div class="col s12 left">
+                Nom :
+            </div>
+            <div class="col s12 left">
+                Points :
+            </div>
+            <div class="col s12 left">
+                Classement :
+            </div>
+            <div class="col s12 left">
+                Groupes :
+            </div>
+        </div>
+    </div>
+    {{ parent() }}
+{% endblock body %}
