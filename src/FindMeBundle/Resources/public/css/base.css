@@ -12,3 +12,13 @@ nav{
 i{
     color: #1C65D1;
 }
+
+.dropdown-content{
+    box-shadow: none;
+    background-color:rgba(218,221,229,0.5);
+    color: #1C65D1;
+}
+
+.dropdown-content li:last-child{
+    margin-bottom:40%;
+}
