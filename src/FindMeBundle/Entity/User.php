@@ -13,7 +13,7 @@ class User extends BaseUser
     /**
      * @var int
      */
-    private $id;
+    protected $id;
 
 
     /**
