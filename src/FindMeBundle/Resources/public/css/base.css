@@ -16,6 +16,7 @@ i{
 .dropdown-content{
     box-shadow: none;
     background-color:rgba(218,221,229,0.8);
+    width:32px;
 }
 .dropdown-content li > a{
     color: #1C65D1;
