@@ -1,0 +1,14 @@
+nav{
+    position: fixed;
+    bottom: 0;
+    background-color:rgba(218,221,229,0.5);
+    box-shadow: none;
+}
+
+.col{
+    text-align: center;
+}
+
+i{
+    color: #1C65D1;
+}
