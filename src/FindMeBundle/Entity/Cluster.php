@@ -23,7 +23,7 @@ class Cluster
         return $this->id;
     }
 
-}
+
 
 
     /**
@@ -73,4 +73,3 @@ class Cluster
         return $this->users;
     }
 }
-

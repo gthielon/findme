@@ -1,10 +1,35 @@
-{% extends '::base.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% block head %}
+{% block body %}
+<div class="row contenu">
+    <div class="col offset-s1 s10">
+            <h4>
+                Bienvenue sur Find Me !
+            </h4>
+        <p>
+            Le but du jeu est de retrouver le lieu où a été pris une photo.
+            Si c'est votre première partie, lancez le jeu et prenez en photo un indice pour vous retrouver.
+            Les autres joueurs devront retrouver où a été prise votre photo grâce à votre indice.
+            Soyez imaginatif, il ne faut pas que cela soit trop facile !
+        </p>
+        <p>
+            Si vous rejoignez une partie, à vous de trouver le lieu de la photo.
+            Si vous le trouvez, prenez en photo le lieu afin que le Meneur puisse approuver votre réponse.
+            Si votre réponse est approuvée, bien joué, vous passez Meneur à votre tour.
+            Si ce n'est pas validé, essayez encore
+        </p>
+        <p>
+            A vous de jouer !
+        </p>
+        <button><a href="#">Commencer le jeu</a></button>
+    </div>
+</div>
     {{ parent() }}
+
 {% endblock %}
 {% block body %}
 {% block content %}
 
 {% endblock %}
 {% endblock %}
+
