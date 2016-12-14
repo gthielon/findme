@@ -73,4 +73,3 @@ class Cluster
         return $this->users;
     }
 }
-

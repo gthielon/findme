@@ -143,4 +143,3 @@ class Game
         return $this->author;
     }
 }
-

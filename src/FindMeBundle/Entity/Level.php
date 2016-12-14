@@ -23,4 +23,3 @@ class Level
         return $this->id;
     }
 }
-
