@@ -3,9 +3,9 @@
 namespace FindMeBundle\Entity;
 
 /**
- * Level
+ * Cluster
  */
-class Level
+class Cluster
 {
     /**
      * @var int
@@ -23,3 +23,4 @@ class Level
         return $this->id;
     }
 }
+
