@@ -22,6 +22,10 @@ class Cluster
     {
         return $this->id;
     }
+
+}
+
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
@@ -69,3 +73,4 @@ class Cluster
         return $this->users;
     }
 }
+

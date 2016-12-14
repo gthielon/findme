@@ -16,6 +16,8 @@ FindMeBundle\Entity\Game:
             length: 255
     lifecycleCallbacks: {  }
 
+
+
     manyToOne:
         winner:
             targetEntity: User
@@ -23,3 +25,4 @@ FindMeBundle\Entity\Game:
         author:
             targetEntity: User
             inversedBy: authors
+
