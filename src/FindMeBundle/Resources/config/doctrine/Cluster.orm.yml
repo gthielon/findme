@@ -9,3 +9,8 @@ FindMeBundle\Entity\Cluster:
             generator:
                 strategy: AUTO
     lifecycleCallbacks: {  }
+
+    manyToMany:
+        users:
+            targetEntity: User
+            mappedBy: clusters
