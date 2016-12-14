@@ -5,3 +5,7 @@ find_me_homepage:
 find_me_profil:
     path:     /profil
     defaults: { _controller: FindMeBundle:Profil:index }
+
+find_me_partie:
+    path:     /partie
+    defaults: { _controller: FindMeBundle:Partie:index }
