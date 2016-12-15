@@ -1,25 +1,33 @@
 <?php
+
 namespace FindMeBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+
+
 class Game
 {
     public $file;
+
     protected function getUploadDir()
     {
         return 'uploads/photo';
     }
+
     protected function getUploadRootDir()
     {
         return __DIR__.'/../../../web/'.$this->getUploadDir();
     }
+
     public function getWebPath()
     {
         return null === $this->photo ? null : $this->getUploadDir().'/'.$this->photo;
     }
+
     public function getAbsolutePath()
     {
         return null === $this->photo ? null : $this->getUploadRootDir().'/'.$this->photo;
     }
+
     /**
      * @ORM\PrePersist
      */
@@ -30,6 +38,7 @@ class Game
             $this->photo = uniqid().'.'.$this->file->guessExtension();
         }
     }
+
     /**
      * @ORM\PostPersist
      */
@@ -38,12 +47,15 @@ class Game
         if (null === $this->file) {
             return;
         }
+
         // if there is an error when moving the file, an exception will
         // be automatically thrown by move(). This will properly prevent
         // the entity from being persisted to the database on error
         $this->file->move($this->getUploadRootDir(), $this->photo);
+
         unset($this->file);
     }
+
     /**
      * @ORM\PostRemove
      */
@@ -53,10 +65,9 @@ class Game
             unlink($file);
         }
     }
+
     // generate code
 
-
-    
     /**
      * @var integer
      */
@@ -92,18 +103,6 @@ class Game
      */
     private $level;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $users;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id
@@ -257,39 +256,5 @@ class Game
     public function getLevel()
     {
         return $this->level;
-    }
-
-    /**
-     * Add user
-     *
-     * @param \FindMeBundle\Entity\User $user
-     *
-     * @return Game
-     */
-    public function addUser(\FindMeBundle\Entity\User $user)
-    {
-        $this->users[] = $user;
-
-        return $this;
-    }
-
-    /**
-     * Remove user
-     *
-     * @param \FindMeBundle\Entity\User $user
-     */
-    public function removeUser(\FindMeBundle\Entity\User $user)
-    {
-        $this->users->removeElement($user);
-    }
-
-    /**
-     * Get users
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getUsers()
-    {
-        return $this->users;
     }
 }
