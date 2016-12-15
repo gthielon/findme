@@ -35,7 +35,3 @@ FindMeBundle\Entity\Game:
         level:
             targetEntity: Level
             inversedBy: levels
-    manyToMany:
-        users:
-            targetEntity: User
-            mappedBy: games

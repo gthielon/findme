@@ -73,8 +73,8 @@ blockquote {
 
 .btn-floating {
     position: fixed;
-    top: 110px;
-    right: 0px;
+    top: 45%;
+    right: 10px;
     backgroud-color: #0277bd;
 }
 

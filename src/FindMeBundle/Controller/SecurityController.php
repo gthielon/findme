@@ -70,7 +70,7 @@ class SecurityController extends Controller
      */
     protected function renderLogin(array $data)
     {
-        return $this->render('FindMeBundle:Default:index.html.twig', $data);
+        return $this->render('@FindMe/Security/login.html.twig', $data);
     }
 
     public function checkAction()
