@@ -70,7 +70,6 @@ class GameController extends Controller
     public function showAction(Game $game, User $user)
     {
         $deleteForm = $this->createDeleteForm($game);
-/*        var_dump($game);*/
         return $this->render('game/show.html.twig', array(
             'game' => $game,
             'user' => $user,

@@ -176,4 +176,43 @@ class User extends BaseUser
     {
         return $this->clusters;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $games;
+
+
+    /**
+     * Add game
+     *
+     * @param \FindMeBundle\Entity\Game $game
+     *
+     * @return User
+     */
+    public function addGame(\FindMeBundle\Entity\Game $game)
+    {
+        $this->games[] = $game;
+
+        return $this;
+    }
+
+    /**
+     * Remove game
+     *
+     * @param \FindMeBundle\Entity\Game $game
+     */
+    public function removeGame(\FindMeBundle\Entity\Game $game)
+    {
+        $this->games->removeElement($game);
+    }
+
+    /**
+     * Get games
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGames()
+    {
+        return $this->games;
+    }
 }

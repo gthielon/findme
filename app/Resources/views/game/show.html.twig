@@ -2,7 +2,6 @@
 
 {% block body %}
     <h1>Game</h1>
-
     <table>
         <tbody>
             <tr>
@@ -23,11 +22,8 @@
             </tr>
             <tr>
                 <th>Participants</th>
-                {#{% for user in game.users %}
-                    <td>
-                        {{ user.username }}
-                    </td>
-                {% endfor %}#}
+
+                {{ dump(user) }}
             </tr>
         </tbody>
     </table>
