@@ -15,17 +15,17 @@ class Game
 
     protected function getUploadRootDir()
     {
-        return __DIR__.'/../../../web/'.$this->getUploadDir();
+        return __DIR__ . '/../../../web/' . $this->getUploadDir();
     }
 
     public function getWebPath()
     {
-        return null === $this->photo ? null : $this->getUploadDir().'/'.$this->photo;
+        return null === $this->photo ? null : $this->getUploadDir() . '/' . $this->photo;
     }
 
     public function getAbsolutePath()
     {
-        return null === $this->photo ? null : $this->getUploadRootDir().'/'.$this->photo;
+        return null === $this->photo ? null : $this->getUploadRootDir() . '/' . $this->photo;
     }
 
 
@@ -36,7 +36,7 @@ class Game
     {
         if (null !== $this->file) {
             // do whatever you want to generate a unique name
-            $this->photo = uniqid().'.'.$this->file->guessExtension();
+            $this->photo = uniqid() . '.' . $this->file->guessExtension();
         }
     }
 
@@ -82,11 +82,6 @@ class Game
     private $name;
 
     /**
-     * @Assert\Photo(
-     *     maxSize = "1k",
-     *     mimeTypes = {"image/*"},
-     *     maxSizeMessage = "The maximum allowed file size is 1MB.",
-     *     mimeTypesMessage = "Please upload a valid Image.")
      * @var string
      */
     private $photo;
@@ -97,12 +92,12 @@ class Game
     private $indice;
 
     /**
-     * @var \FindMeBundle\Entity\Player
+     * @var \FindMeBundle\Entity\User
      */
     private $winner;
 
     /**
-     * @var \FindMeBundle\Entity\Player
+     * @var \FindMeBundle\Entity\User
      */
     private $author;
 
@@ -111,6 +106,18 @@ class Game
      */
     private $level;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $users;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -197,11 +204,11 @@ class Game
     /**
      * Set winner
      *
-     * @param \FindMeBundle\Entity\Player $winner
+     * @param \FindMeBundle\Entity\User $winner
      *
      * @return Game
      */
-    public function setWinner(\FindMeBundle\Entity\Player $winner = null)
+    public function setWinner(\FindMeBundle\Entity\User $winner = null)
     {
         $this->winner = $winner;
 
@@ -211,7 +218,7 @@ class Game
     /**
      * Get winner
      *
-     * @return \FindMeBundle\Entity\Player
+     * @return \FindMeBundle\Entity\User
      */
     public function getWinner()
     {
@@ -221,11 +228,11 @@ class Game
     /**
      * Set author
      *
-     * @param \FindMeBundle\Entity\Player $author
+     * @param \FindMeBundle\Entity\User $author
      *
      * @return Game
      */
-    public function setAuthor(\FindMeBundle\Entity\Player $author = null)
+    public function setAuthor(\FindMeBundle\Entity\User $author = null)
     {
         $this->author = $author;
 
@@ -235,7 +242,7 @@ class Game
     /**
      * Get author
      *
-     * @return \FindMeBundle\Entity\Player
+     * @return \FindMeBundle\Entity\User
      */
     public function getAuthor()
     {
@@ -264,18 +271,6 @@ class Game
     public function getLevel()
     {
         return $this->level;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $users;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
