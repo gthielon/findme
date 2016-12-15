@@ -1,195 +1,59 @@
 <?php
 
 namespace FindMeBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 
-/**
- * Game
- */
+
+
 class Game
 {
-    /**
-     * @var int
-     */
-    private $id;
+    public $file;
 
-    /**
-     * @var string
-     */
-    private $name;
-
-    /**
-     * @var string
-     */
-    private $photo;
-
-    /**
-     * @var string
-     */
-    private $indice;
-
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
+    protected function getUploadDir()
     {
-        return $this->id;
+        return 'uploads/photo';
+    }
+
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->photo ? null : $this->getUploadDir().'/'.$this->photo;
+    }
+
+    public function getAbsolutePath()
+    {
+        return null === $this->photo ? null : $this->getUploadRootDir().'/'.$this->photo;
     }
 
     /**
-     * @return string
+     * @ORM\PrePersist
      */
-    public function getName()
+    public function preUpload()
     {
-        return $this->name;
+        // Add your code here
     }
 
     /**
-     * @param string $name
+     * @ORM\PostPersist
      */
-    public function setName($name)
+    public function upload()
     {
-        $this->name = $name;
+        // Add your code here
     }
 
     /**
-     * Set photo
-     *
-     * @param string $photo
-     *
-     * @return Game
+     * @ORM\PostRemove
      */
-    public function setPhoto($photo)
+    public function removeUpload()
     {
-        $this->photo = $photo;
-
-        return $this;
+        // Add your code here
     }
 
-    /**
-     * Get photo
-     *
-     * @return string
-     */
-    public function getPhoto()
-    {
-        return $this->photo;
-    }
-
-    /**
-     * Set indice
-     *
-     * @param string $indice
-     *
-     * @return Game
-     */
-    public function setIndice($indice)
-    {
-        $this->indice = $indice;
-
-        return $this;
-    }
-
-    /**
-     * Get indice
-     *
-     * @return string
-     */
-    public function getIndice()
-    {
-        return $this->indice;
-    }
-
-
-
-
-    /**
-     * @var \FindMeBundle\Entity\User
-     */
-    private $winner;
-
-    /**
-     * @var \FindMeBundle\Entity\User
-     */
-    private $author;
-
-
-    /**
-     * Set winner
-     *
-     * @param \FindMeBundle\Entity\User $winner
-     *
-     * @return Game
-     */
-    public function setWinner(\FindMeBundle\Entity\User $winner = null)
-    {
-        $this->winner = $winner;
-
-        return $this;
-    }
-
-    /**
-     * Get winner
-     *
-     * @return \FindMeBundle\Entity\User
-     */
-    public function getWinner()
-    {
-        return $this->winner;
-    }
-
-    /**
-     * Set author
-     *
-     * @param \FindMeBundle\Entity\User $author
-     *
-     * @return Game
-     */
-    public function setAuthor(\FindMeBundle\Entity\User $author = null)
-    {
-        $this->author = $author;
-
-        return $this;
-    }
-
-    /**
-     * Get author
-     *
-     * @return \FindMeBundle\Entity\User
-     */
-    public function getAuthor()
-    {
-        return $this->author;
-    }
-    /**
-     * @var \FindMeBundle\Entity\Level
-     */
-    private $level;
-
-
-    /**
-     * Set level
-     *
-     * @param \FindMeBundle\Entity\Level $level
-     *
-     * @return Game
-     */
-    public function setLevel(\FindMeBundle\Entity\Level $level = null)
-    {
-        $this->level = $level;
-
-        return $this;
-    }
-
-    /**
-     * Get level
-     *
-     * @return \FindMeBundle\Entity\Level
-     */
-    public function getLevel()
-    {
-        return $this->level;
-    }
+    // generate code
+  
 }
