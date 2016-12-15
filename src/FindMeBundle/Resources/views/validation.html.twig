@@ -2,33 +2,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-{#
-    <h4 class="row">
-    <h6>
-        Validation
-    </h6>
+    <div class="row">
+        <h6>
+            Validation
+        </h6>
     </div>
     <div class="row contenu">
         <div class="col offset-s1 s10">
-            <? php
-                $validation = 1;
-                ?>
-           <button><a href="#">Valider</a></button>
+
+               <a href="{{ path('find_me_homepage') }}"><button>Valider</button></a>
+
         </div>
     </div>
     {{ parent() }}
-{% endblock body %}#}
-
-
-<form action="{{ path('find_me_homepage') }}" method="POST">
-    <select name="id_player">
-        {% for player in players %}
-            <option value="{{ player.id }}">
-                {{ player.id }}
-            </option>
-        {% endfor %}
-    </select>
-    <input type="Submit" name="Enregistrer">
-</form>
-
 {% endblock body %}

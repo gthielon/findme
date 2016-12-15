@@ -20,14 +20,14 @@
         <div class="nav-wrapper">
             <ul class="row">
                 <li class="col s4">
-                    <a href="#">
+                    <a href=" {{ path('find_me_profil') }} ">   {# profil button #}
                         <i class="material-icons">
                             perm_identity
                         </i>
                     </a>
                 </li>
                 <li class="col s4">
-                    <a href="#">
+                    <a href="#">   {# parameters button #}
                         <i class="material-icons">
                             camera
                         </i>
@@ -42,7 +42,7 @@
                 </li>
             </ul>
             <ul id="dropdown1" class="dropdown-content">
-                <li><a href="#!">Profil</a></li>
+                <li><a href=" {{ path('find_me_profil') }} ">Profil</a></li>
                 <li><a href="#!">Parties</a></li>
                 <li><a href="#!">Historique</a></li>
             </ul>
