@@ -16,8 +16,6 @@ class ValidationController extends Controller{
     public function validationAction()
     {
         $validator = Validation::createValidator();
-
-
         return $this->render('FindMeBundle::validation.html.twig');
 
 

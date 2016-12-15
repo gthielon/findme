@@ -3,6 +3,7 @@
 namespace FindMeBundle\Controller;
 
 use FindMeBundle\Entity\Game;
+use FindMeBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\Mapping as ORM;
@@ -66,12 +67,13 @@ class GameController extends Controller
      * Finds and displays a game entity.
      *
      */
-    public function showAction(Game $game)
+    public function showAction(Game $game, User $user)
     {
         $deleteForm = $this->createDeleteForm($game);
-
+/*        var_dump($game);*/
         return $this->render('game/show.html.twig', array(
             'game' => $game,
+            'user' => $user,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -83,13 +85,13 @@ class GameController extends Controller
     public function editAction(Request $request, Game $game)
     {
         $deleteForm = $this->createDeleteForm($game);
-        $photo = $em->getRepository('RuralisBundle:Game')->findOneById($game->getPhoto());
+/*        $photo = $em->getRepository('RuralisBundle:Game')->findOneById($game->getPhoto());*/
         $editForm = $this->createForm('FindMeBundle\Form\GameType', $game);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $photo->preUpload();
+/*            $photo->preUpload();*/
             $em->persist($game);
             $em->flush();
             return $this->redirectToRoute('game_edit', array('id' => $game->getId()));

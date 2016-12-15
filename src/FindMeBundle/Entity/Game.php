@@ -12,6 +12,11 @@ class Game
 {
     public function __toString()
     {
+        return $this->getUsers();
+    }
+
+/*    public function __toString()
+    {
         return $this->photo;
     }
 
@@ -39,7 +44,7 @@ class Game
     /**
      * @ORM\PrePersist
      */
-    public function preUpload()
+   /* public function preUpload()
     {
         if (null !== $this->file) {
             // "uniquid()" permet de créer une id de manière aléatoire
@@ -52,7 +57,7 @@ class Game
     /**
      * @ORM\PostPersist
      */
-    public function upload()
+    /*public function upload()
     {
         if (null === $this->file) {
             return;
@@ -63,18 +68,18 @@ class Game
         $this->file->move($this->getUploadRootDir(), $this->photo);
 
         unset($this->file);
-    }
+    }*/
 
-
+/*
     /**
      * @ORM\PostRemove
      */
-    public function removeUpload()
+/*    public function removeUpload()
     {
         if ($photo = $this->getAbsolutePath()) {
             unlink($photo);
         }
-    }
+    } */
 
     // GENERATED CODE
 
@@ -268,5 +273,51 @@ class Game
     public function getLevel()
     {
         return $this->level;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $users;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add user
+     *
+     * @param \FindMeBundle\Entity\User $user
+     *
+     * @return Game
+     */
+    public function addUser(\FindMeBundle\Entity\User $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \FindMeBundle\Entity\User $user
+     */
+    public function removeUser(\FindMeBundle\Entity\User $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

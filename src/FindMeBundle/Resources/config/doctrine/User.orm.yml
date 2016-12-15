@@ -34,3 +34,14 @@ FindMeBundle\Entity\User:
                 inverseJoinColumns:
                     cluster_id:
                         referencedColumnName: id
+        games:
+            targetEntity: Game
+            inversedBy: users
+            joinTable:
+                name: users_games
+                joinColumns:
+                    user_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    game_id:
+                        referencedColumnName: id

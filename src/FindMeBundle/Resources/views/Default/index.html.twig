@@ -4,7 +4,7 @@
 <div class="row contenu">
     <div class="col offset-s1 s10">
             <h4>
-                Bienvenue sur Find Me !
+                Bienvenue sur Find Me ! {{ app.user.id }}
             </h4>
         <p>
             Le but du jeu est de retrouver le lieu où a été pris une photo.
@@ -21,7 +21,7 @@
         <p>
             A vous de jouer !
         </p>
-        <button><a href="#">Commencer le jeu</a></button>    {#  rediriger vers la liste des parties  #}
+        <a href="#"><button>Commencer le jeu</button></a>   {#  rediriger vers la liste des parties  #}
     </div>
 </div>
     {{ parent() }}

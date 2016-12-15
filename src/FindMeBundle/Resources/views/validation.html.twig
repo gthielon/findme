@@ -9,9 +9,15 @@
     </div>
     <div class="row contenu">
         <div class="col offset-s1 s10">
+            <p>
+                Proposition de : {{ app.game.user.username }}
+            </p>
+{#
+            Rôle : Meneur
+#}
 
-               <a href="{{ path('find_me_homepage') }}"><button>Valider</button></a>
-
+            <a href="{{ path('game_index') }}"><button>Gagné, rejoignez une nouvelle partie</button></a>
+            <a href="{{ path('find_me_homepage') }}"><button>Perdu, attendez une nouvelle proposition</button></a>
         </div>
     </div>
     {{ parent() }}
