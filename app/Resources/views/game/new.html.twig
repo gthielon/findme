@@ -4,16 +4,7 @@
     <h1>Game creation</h1>
 
     {{ form_start(form) }}
-    <div class="row file-field input-field">
-        <div class="btn">
-            <div>Photo</div>
-            {{ form_widget(form.photo.file) }}
-        </div>
-        <div class="file-path-wrapper">
-            <input class="file-path validate" type="text" placeholder="Cliquez pour ajouter votre image" required>
-        </div>
-        {{ form_errors(form.photo.file) }}
-    </div>
+        {{ form_widget(form) }}
         <input type="submit" value="Create" />
     {{ form_end(form) }}
 

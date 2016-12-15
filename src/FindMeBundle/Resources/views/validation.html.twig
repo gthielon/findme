@@ -3,22 +3,27 @@
 
 {% block body %}
     <div class="row">
-        <h6>
-            Validation
-        </h6>
-    </div>
-    <div class="row contenu">
         <div class="col offset-s1 s10">
-            <p>
-                Proposition de : {{ app.game.user.username }}
-            </p>
-{#
-            Rôle : Meneur
-#}
+            <div class="row">
+                <h4>
+                    Validation
+                </h4>
+            </div>
+            <div class="row contenu">
+                <div class="col offset-s1 s10">
+                    <p>
+                        Proposition de : {{ app.user.username }}
+                    </p>
+                    {#
+                                Rôle : Meneur
+                    #}
 
-            <a href="{{ path('game_index') }}"><button>Gagné, rejoignez une nouvelle partie</button></a>
-            <a href="{{ path('find_me_homepage') }}"><button>Perdu, attendez une nouvelle proposition</button></a>
+                    <a href="{{ path('game_index') }}"><button>Gagné, rejoignez une nouvelle partie</button></a>
+                    <a href="{{ path('find_me_homepage') }}"><button>Perdu, attendez une nouvelle proposition</button></a>
+                </div>
+            </div>
         </div>
     </div>
+
     {{ parent() }}
 {% endblock body %}

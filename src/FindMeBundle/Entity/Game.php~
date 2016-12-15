@@ -28,7 +28,6 @@ class Game
         return null === $this->photo ? null : $this->getUploadRootDir() . '/' . $this->photo;
     }
 
-
     /**
      * @ORM\PrePersist
      */
@@ -40,7 +39,6 @@ class Game
         }
     }
 
-
     /**
      * @ORM\PostPersist
      */
@@ -49,7 +47,6 @@ class Game
         if (null === $this->file) {
             return;
         }
-
 
         // if there is an error when moving the file, an exception will
         // be automatically thrown by move(). This will properly prevent
@@ -70,5 +67,4 @@ class Game
     }
 
     // generate code
-
 }

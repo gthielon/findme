@@ -28,7 +28,6 @@ class Game
         return null === $this->photo ? null : $this->getUploadRootDir() . '/' . $this->photo;
     }
 
-
     /**
      * @ORM\PrePersist
      */
@@ -40,7 +39,6 @@ class Game
         }
     }
 
-
     /**
      * @ORM\PostPersist
      */
@@ -49,7 +47,6 @@ class Game
         if (null === $this->file) {
             return;
         }
-
 
         // if there is an error when moving the file, an exception will
         // be automatically thrown by move(). This will properly prevent
@@ -70,7 +67,6 @@ class Game
     }
 
     // generate code
-
     /**
      * @var integer
      */
@@ -106,18 +102,6 @@ class Game
      */
     private $level;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $users;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id
@@ -271,39 +255,5 @@ class Game
     public function getLevel()
     {
         return $this->level;
-    }
-
-    /**
-     * Add user
-     *
-     * @param \FindMeBundle\Entity\User $user
-     *
-     * @return Game
-     */
-    public function addUser(\FindMeBundle\Entity\User $user)
-    {
-        $this->users[] = $user;
-
-        return $this;
-    }
-
-    /**
-     * Remove user
-     *
-     * @param \FindMeBundle\Entity\User $user
-     */
-    public function removeUser(\FindMeBundle\Entity\User $user)
-    {
-        $this->users->removeElement($user);
-    }
-
-    /**
-     * Get users
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getUsers()
-    {
-        return $this->users;
     }
 }
