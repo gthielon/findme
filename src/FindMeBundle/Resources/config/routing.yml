@@ -15,12 +15,10 @@ find_me_login:
     path:     /
     defaults: { _controller: FOSUserBundle:Security:login }
 
-
-
 find_me_partie:
     path:     /partie
     defaults: { _controller: FindMeBundle:Partie:index }
 
-find_me_validation:
-    path:     /validation
-    defaults: { _controller: FindMeBundle:Validation:validation }
+#find_me_validation:
+#    path:     /validation
+#    defaults: { _controller: FindMeBundle:Validation:validation }
