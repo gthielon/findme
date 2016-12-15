@@ -9,16 +9,12 @@ find_me_homepage:
 find_me_profil:
     path:     /profil
     defaults: { _controller: FindMeBundle:Profil:index }
-
-
-find_me_login:
-    path:     /
-    defaults: { _controller: FOSUserBundle:Security:login }
+    methods:  [GET, POST]
 
 find_me_partie:
     path:     /partie
     defaults: { _controller: FindMeBundle:Partie:index }
 
-#find_me_validation:
-#    path:     /validation
-#    defaults: { _controller: FindMeBundle:Validation:validation }
+find_me_validation:
+    path:     /validation
+    defaults: { _controller: FindMeBundle:Validation:validation }

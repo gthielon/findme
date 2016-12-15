@@ -1,7 +1,8 @@
-{#
+
 {% extends 'base.html.twig' %}
 
 {% block body %}
+{#
     <h4 class="row">
     <h6>
         Validation
@@ -17,3 +18,17 @@
     </div>
     {{ parent() }}
 {% endblock body %}#}
+
+
+<form action="{{ path('find_me_homepage') }}" method="POST">
+    <select name="id_player">
+        {% for player in players %}
+            <option value="{{ player.id }}">
+                {{ player.id }}
+            </option>
+        {% endfor %}
+    </select>
+    <input type="Submit" name="Enregistrer">
+</form>
+
+{% endblock body %}

@@ -1,6 +1,6 @@
 <?php
-/*
-namespace MarvelBundle\Controller;
+
+namespace FindMeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -8,7 +8,12 @@ use FindMeBundle\Entity\User;
 
 class ValidationController extends Controller{
 
-    public function validationAction(User $user, Request $request){
+    public function validationAction()
+    {
+        return $this->render('@FindMe/validation.html.twig');
+    }
+
+    /*public function validationAction(User $user, Request $request){
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository('FindMeBundle:User')->findOneById($id);
         //Possible de récupérer les données avec Request $request en paramètre, spécifique à SF
@@ -20,10 +25,13 @@ class ValidationController extends Controller{
                 'points' => $points,
             ));
         }
+
+
+
         else {
             return $this->render('@FindMe/Default/partie.html.twig', array(
                 'id' => $id,
             ));
         }
-    }
-}*/
+    }*/
+}
