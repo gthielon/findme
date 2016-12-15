@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FOS\UserBundle\Controller;
+namespace FindMeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -70,7 +70,7 @@ class SecurityController extends Controller
      */
     protected function renderLogin(array $data)
     {
-        return $this->render('FindMeBundle:Default:index.html.twig', $data);
+        return $this->render('@FindMe/Security/login.html.twig', $data);
     }
 
     public function checkAction()

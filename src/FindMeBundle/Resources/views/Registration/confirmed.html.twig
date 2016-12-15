@@ -7,5 +7,5 @@
     {% if targetUrl %}
     <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
     {% endif %}
-    <button><a href="{{ path("find_me_homepage") }}">Homepage</a></button>
+    <a href="{{ path('find_me_homepage') }}"><button>Homepage</button></a>
 {% endblock fos_user_content %}
