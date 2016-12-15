@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h4 class="row">
+    <div class="row">
         <h6>
             Votre profil
         </h6>
@@ -9,19 +9,25 @@
     <div class="row contenu">
         <div class="col offset-s1 s10">
             <div class="col offset-s10 s1 divPhotoProfil">
-                <img class="photoProfil" src="{{ asset ('bundles/findme/images/chevre.jpg') }}" alt="profil">
+                <img class="photoProfil z-depth-2" src="{{ asset ('bundles/findme/images/chevre.jpg') }}" alt="profil">
             </div>
             <div class="col s12 left">
-                Nom :
+                <h6 class="ss-titre">Nom :  </h6>
+                <h6>WildCodeSchool</h6>
+                {#{{ user.username }}#}
             </div>
             <div class="col s12 left">
-                Points :
+                <h6 class="ss-titre"> Points : </h6>
+                <h6>50</h6>
+                {#{{ player.points }}#}
             </div>
             <div class="col s12 left">
-                Classement :
+                <h6 class="ss-titre">Classement : </h6>
+                <h6>120 </h6>
             </div>
             <div class="col s12 left">
-                Groupes :
+                <h6 class="ss-titre">Groupes :    </h6>
+                <h6></h6>
             </div>
         </div>
     </div>
