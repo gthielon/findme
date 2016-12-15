@@ -21,10 +21,10 @@ FindMeBundle\Entity\Game:
 
     manyToOne:
         winner:
-            targetEntity: User
+            targetEntity: Player
             inversedBy: winners
         author:
-            targetEntity: User
+            targetEntity: Player
             inversedBy: authors
         level:
             targetEntity: Level
