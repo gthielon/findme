@@ -1,7 +1,13 @@
 find_me_homepage:
-    path:     /
+    path:     /presentation
     defaults: { _controller: FindMeBundle:Default:index }
 
 find_me_profil:
     path:     /profil
     defaults: { _controller: FindMeBundle:Profil:index }
+
+find_me_login:
+    path:     /
+    defaults: { _controller: FOSUserBundle:Security:login }
+
+

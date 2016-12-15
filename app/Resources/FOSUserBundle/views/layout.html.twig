@@ -2,6 +2,7 @@
 
 {% block body %}
     <div class="container">
+        <buton><a href="{{ path('fos_user_registration_register') }}">Register</a></buton>
         <div>
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
@@ -28,4 +29,7 @@
             {% endblock fos_user_content %}
         </div>
     </div>
+
+    {{ parent() }}
+
 {% endblock %}
