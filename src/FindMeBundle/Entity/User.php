@@ -30,6 +30,7 @@ class User extends BaseUser
 /*    GENERATED CODE*/
 
 
+
     /**
      * @var integer
      */
@@ -49,6 +50,11 @@ class User extends BaseUser
      * @var \Doctrine\Common\Collections\Collection
      */
     private $clusters;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $games;
 
 
     /**
@@ -176,11 +182,6 @@ class User extends BaseUser
     {
         return $this->clusters;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $games;
-
 
     /**
      * Add game

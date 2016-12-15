@@ -31,5 +31,5 @@ FindMeBundle\Entity\Game:
             inversedBy: levels
     manyToMany:
         users:
-            targetEntity: User
+            targetEntity: FindMeBundle\Entity\User
             mappedBy: games

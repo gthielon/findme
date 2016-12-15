@@ -3,7 +3,6 @@
 namespace FindMeBundle\Controller;
 
 use FindMeBundle\Entity\Game;
-use FindMeBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\Mapping as ORM;
@@ -29,50 +28,18 @@ class GameController extends Controller
         ));
     }
 
-    /**
-     * Creates a new game entity.
-     *
-     */
-    public function newAction(Request $request)
-    {
-        $game = new Game();
-        $form = $this->createForm('FindMeBundle\Form\GameType', $game);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $photo = $game->getPhoto();
-
-            // Generate a unique name for the file before saving it
-            $photo = md5(uniqid()).'.'.$photo->guessExtension();
-
-            // Move the file to the directory where brochures are stored
-            $photo->move(
-                $this->getParameter('photos_directory'),
-                $photo
-            );
-
-            // Update the 'brochure' property to store the PDF file name
-            // instead of its contents
-            $game->setPhoto($photo);
-
-            return $this->redirect($this->generateUrl('app_product_list'));        }
-
-        return $this->render('game/new.html.twig', array(
-            'game' => $game,
-            'form' => $form->createView(),
-        ));
-    }
 
     /**
      * Finds and displays a game entity.
      *
      */
-    public function showAction(Game $game, User $user)
+    public function showAction(Game $game)
     {
         $deleteForm = $this->createDeleteForm($game);
+
         return $this->render('game/show.html.twig', array(
             'game' => $game,
-            'user' => $user,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -84,14 +51,11 @@ class GameController extends Controller
     public function editAction(Request $request, Game $game)
     {
         $deleteForm = $this->createDeleteForm($game);
-/*        $photo = $em->getRepository('RuralisBundle:Game')->findOneById($game->getPhoto());*/
         $editForm = $this->createForm('FindMeBundle\Form\GameType', $game);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
-/*            $photo->preUpload();*/
-            $em->persist($game);
             $em->flush();
             return $this->redirectToRoute('game_edit', array('id' => $game->getId()));
         }
