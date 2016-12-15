@@ -1,5 +1,5 @@
 <?php
-
+/*
 namespace MarvelBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -26,4 +26,4 @@ class ValidationController extends Controller{
             ));
         }
     }
-}
+}*/
