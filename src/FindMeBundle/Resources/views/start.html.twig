@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row contenu">
+        <div class="col offset-s1 s10">
+            <h4>
+                Bienvenue sur Find Me ! {{ app.user.id }}
+            </h4>
+            <p>
+                Voulez-vous être meneur ou enquêteur ?
+            </p>
+            <a href="{{ path('game_new') }}"><button>Je veux être meneur</button></a>    {#  rediriger vers la liste des parties  #}
+            <a href="{{ path('game_index') }}"><button>Je veux être enquêteur</button></a>
+        </div>
+    </div>
+    {{ parent() }}
+
+{% endblock %}
+{% block content %}
+
+
+{% endblock %}
+
