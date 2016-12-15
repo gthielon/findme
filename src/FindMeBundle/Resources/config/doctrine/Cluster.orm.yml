@@ -14,6 +14,6 @@ FindMeBundle\Entity\Cluster:
 
     manyToMany:
         users:
-            targetEntity: User
+            targetEntity: Player
             mappedBy: clusters
 

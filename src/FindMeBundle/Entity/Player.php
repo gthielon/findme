@@ -2,35 +2,16 @@
 
 namespace FindMeBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
-use Doctrine\ORM\Mapping as ORM;
-
 /**
- * @ORM\Entity
- * @ORM\Table(name="fos_user")
+ * Level
  */
-class User extends BaseUser
+class Player
 {
+
     /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @var integer
      */
-    protected $id;
-    
-    public function __construct()
-    {
-/*        $this->winners = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->authors = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->clusters = new \Doctrine\Common\Collections\ArrayCollection();*/
-        parent::__construct();
-        $this->getUsername();
-        $this->getPassword();
-    }
-
-
-/*    GENERATED CODE*/
-
+    private $id;
 
     /**
      * @var integer
@@ -52,13 +33,32 @@ class User extends BaseUser
      */
     private $clusters;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->winners = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->authors = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->clusters = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set points
      *
      * @param integer $points
      *
-     * @return User
+     * @return Player
      */
     public function setPoints($points)
     {
@@ -82,7 +82,7 @@ class User extends BaseUser
      *
      * @param \FindMeBundle\Entity\Game $winner
      *
-     * @return User
+     * @return Player
      */
     public function addWinner(\FindMeBundle\Entity\Game $winner)
     {
@@ -116,7 +116,7 @@ class User extends BaseUser
      *
      * @param \FindMeBundle\Entity\Game $author
      *
-     * @return User
+     * @return Player
      */
     public function addAuthor(\FindMeBundle\Entity\Game $author)
     {
@@ -150,7 +150,7 @@ class User extends BaseUser
      *
      * @param \FindMeBundle\Entity\Cluster $cluster
      *
-     * @return User
+     * @return Player
      */
     public function addCluster(\FindMeBundle\Entity\Cluster $cluster)
     {

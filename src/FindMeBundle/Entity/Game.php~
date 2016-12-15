@@ -15,6 +15,11 @@ class Game
     /**
      * @var string
      */
+    private $name;
+
+    /**
+     * @var string
+     */
     private $photo;
 
     /**
@@ -31,6 +36,22 @@ class Game
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
     }
 
     /**
@@ -142,5 +163,33 @@ class Game
     {
         return $this->author;
     }
-}
+    /**
+     * @var \FindMeBundle\Entity\Level
+     */
+    private $level;
 
+
+    /**
+     * Set level
+     *
+     * @param \FindMeBundle\Entity\Level $level
+     *
+     * @return Game
+     */
+    public function setLevel(\FindMeBundle\Entity\Level $level = null)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * Get level
+     *
+     * @return \FindMeBundle\Entity\Level
+     */
+    public function getLevel()
+    {
+        return $this->level;
+    }
+}

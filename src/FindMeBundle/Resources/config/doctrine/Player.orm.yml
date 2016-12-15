@@ -1,0 +1,36 @@
+FindMeBundle\Entity\Player:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        points:
+            type: integer
+            nullable: true
+
+    lifecycleCallbacks: {  }
+
+    oneToMany:
+        winners:
+            targetEntity: Game
+            mappedBy: winner
+        authors:
+            targetEntity: Game
+            mappedBy: author
+
+    manyToMany:
+        clusters:
+            targetEntity: Cluster
+            inversedBy: players
+            joinTable:
+                name: players_clusters
+                joinColumns:
+                    player_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    cluster_id:
+                        referencedColumnName: id
