@@ -16,7 +16,7 @@ class GameType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('photo', FileType::class)
+            ->add('photo')
             ->add('indice')
             ->add('winner')
             ->add('author')

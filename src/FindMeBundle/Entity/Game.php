@@ -15,77 +15,8 @@ class Game
         return $this->getUsers();
     }
 
-/*    public function __toString()
-    {
-        return $this->photo;
-    }
-
-    protected function getUploadDir()
-    {
-        return 'photos';
-    }
-
-    protected function getUploadRootDir()
-    {
-        return __DIR__.'/../../../web/'.$this->getUploadDir();
-    }
-
-    public function getWebPath()
-    {
-        return null === $this->photo ? null : $this->getUploadDir().'/'.$this->photo;
-    }
-
-    public function getAbsolutePath()
-    {
-        return null === $this->photo ? null : $this->getUploadRootDir().'/'.$this->photo;
-    }
-
-
     /**
-     * @ORM\PrePersist
-     */
-   /* public function preUpload()
-    {
-        if (null !== $this->file) {
-            // "uniquid()" permet de créer une id de manière aléatoire
-            // Récupère l'extension du fichier
-            $this->photo = uniqid().'.'.$this->file->guessExtension();
-        }
-    }
-
-
-    /**
-     * @ORM\PostPersist
-     */
-    /*public function upload()
-    {
-        if (null === $this->file) {
-            return;
-        }
-// If there is an error when moving the file, an exception will
-// be automatically thrown by move(). This will properly prevent
-// the entity from being persisted to the database on error
-        $this->file->move($this->getUploadRootDir(), $this->photo);
-
-        unset($this->file);
-    }*/
-
-/*
-    /**
-     * @ORM\PostRemove
-     */
-/*    public function removeUpload()
-    {
-        if ($photo = $this->getAbsolutePath()) {
-            unlink($photo);
-        }
-    } */
-
-    // GENERATED CODE
-
-
-    /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -95,11 +26,6 @@ class Game
     private $name;
 
     /**
-     * @Assert\Photo(
-     *     maxSize = "1k",
-     *     mimeTypes = {"image/*"},
-     *     maxSizeMessage = "The maximum allowed file size is 1MB.",
-     *     mimeTypesMessage = "Please upload a valid Image.")
      * @var string
      */
     private $photo;
@@ -109,11 +35,38 @@ class Game
      */
     private $indice;
 
+    /**
+     * @var \FindMeBundle\Entity\User
+     */
+    private $winner;
+
+    /**
+     * @var \FindMeBundle\Entity\User
+     */
+    private $author;
+
+    /**
+     * @var \FindMeBundle\Entity\Level
+     */
+    private $level;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $users;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -121,19 +74,27 @@ class Game
     }
 
     /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Game
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
      * @return string
      */
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
     }
 
     /**
@@ -184,20 +145,6 @@ class Game
         return $this->indice;
     }
 
-
-
-
-    /**
-     * @var \FindMeBundle\Entity\User
-     */
-    private $winner;
-
-    /**
-     * @var \FindMeBundle\Entity\User
-     */
-    private $author;
-
-
     /**
      * Set winner
      *
@@ -245,11 +192,6 @@ class Game
     {
         return $this->author;
     }
-    /**
-     * @var \FindMeBundle\Entity\Level
-     */
-    private $level;
-
 
     /**
      * Set level
@@ -273,18 +215,6 @@ class Game
     public function getLevel()
     {
         return $this->level;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $users;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
