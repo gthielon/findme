@@ -17,7 +17,13 @@ FindMeBundle\Entity\Game:
         indice:
             type: string
             length: 255
-    lifecycleCallbacks: {  }
+
+    lifecycleCallbacks:
+        prePersist: [ preUpload ]
+        preUpdate: [ preUpload ]
+        postPersist: [ upload ]
+        postUpdate: [ upload ]
+        postRemove: [ removeUpload ]
 
     manyToOne:
         winner:
@@ -29,7 +35,3 @@ FindMeBundle\Entity\Game:
         level:
             targetEntity: Level
             inversedBy: levels
-    manyToMany:
-        users:
-            targetEntity: FindMeBundle\Entity\User
-            mappedBy: games

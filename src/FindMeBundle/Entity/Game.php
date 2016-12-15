@@ -1,22 +1,72 @@
 <?php
 
 namespace FindMeBundle\Entity;
-
-use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Game
- */
+
 class Game
 {
-    public function __toString()
+    public $file;
+
+    protected function getUploadDir()
     {
-        return $this->name;
+        return 'uploads/photo';
     }
 
-    // GENERATED CODE
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../web/'.$this->getUploadDir();
+    }
 
+    public function getWebPath()
+    {
+        return null === $this->photo ? null : $this->getUploadDir().'/'.$this->photo;
+    }
+
+    public function getAbsolutePath()
+    {
+        return null === $this->photo ? null : $this->getUploadRootDir().'/'.$this->photo;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function preUpload()
+    {
+        if (null !== $this->file) {
+            // do whatever you want to generate a unique name
+            $this->photo = uniqid().'.'.$this->file->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\PostPersist
+     */
+    public function upload()
+    {
+        if (null === $this->file) {
+            return;
+        }
+
+        // if there is an error when moving the file, an exception will
+        // be automatically thrown by move(). This will properly prevent
+        // the entity from being persisted to the database on error
+        $this->file->move($this->getUploadRootDir(), $this->photo);
+
+        unset($this->file);
+    }
+
+    /**
+     * @ORM\PostRemove
+     */
+    public function removeUpload()
+    {
+        if ($file = $this->getAbsolutePath()) {
+            unlink($file);
+        }
+    }
+
+    // generate code
 
     /**
      * @var integer
@@ -53,18 +103,6 @@ class Game
      */
     private $level;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $users;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id
@@ -218,39 +256,5 @@ class Game
     public function getLevel()
     {
         return $this->level;
-    }
-
-    /**
-     * Add user
-     *
-     * @param \FindMeBundle\Entity\User $user
-     *
-     * @return Game
-     */
-    public function addUser(\FindMeBundle\Entity\User $user)
-    {
-        $this->users[] = $user;
-
-        return $this;
-    }
-
-    /**
-     * Remove user
-     *
-     * @param \FindMeBundle\Entity\User $user
-     */
-    public function removeUser(\FindMeBundle\Entity\User $user)
-    {
-        $this->users->removeElement($user);
-    }
-
-    /**
-     * Get users
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getUsers()
-    {
-        return $this->users;
     }
 }

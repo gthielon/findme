@@ -5,7 +5,6 @@ namespace FindMeBundle\Controller;
 use FindMeBundle\Entity\Game;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Game controller.
@@ -28,7 +27,29 @@ class GameController extends Controller
         ));
     }
 
+    /**
+     * Creates a new game entity.
+     *
+     */
+    public function newAction(Request $request)
+    {
+        $game = new Game();
+        $form = $this->createForm('FindMeBundle\Form\GameType', $game);
+        $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($game);
+            $em->flush($game);
+
+            return $this->redirectToRoute('game_show', array('id' => $game->getId()));
+        }
+
+        return $this->render('game/new.html.twig', array(
+            'game' => $game,
+            'form' => $form->createView(),
+        ));
+    }
 
     /**
      * Finds and displays a game entity.
@@ -55,8 +76,8 @@ class GameController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->flush();
+            $this->getDoctrine()->getManager()->flush();
+
             return $this->redirectToRoute('game_edit', array('id' => $game->getId()));
         }
 
@@ -98,6 +119,6 @@ class GameController extends Controller
             ->setAction($this->generateUrl('game_delete', array('id' => $game->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }
