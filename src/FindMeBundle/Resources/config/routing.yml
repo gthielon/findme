@@ -1,3 +1,7 @@
+find_me_game:
+    resource: "@FindMeBundle/Resources/config/routing/game.yml"
+    prefix:   /game
+
 find_me_homepage:
     path:     /presentation
     defaults: { _controller: FindMeBundle:Default:index }
@@ -6,8 +10,14 @@ find_me_profil:
     path:     /profil
     defaults: { _controller: FindMeBundle:Profil:index }
 
+
 find_me_login:
     path:     /
     defaults: { _controller: FOSUserBundle:Security:login }
 
+
+
+find_me_partie:
+    path:     /partie
+    defaults: { _controller: FindMeBundle:Partie:index }
 
