@@ -21,9 +21,17 @@
                 <th>Indice</th>
                 <td>{{ game.indice }}</td>
             </tr>
+            <tr>
+                <th>Participants</th>
+                {#{% for user in game.users %}
+                    <td>
+                        {{ user.username }}
+                    </td>
+                {% endfor %}#}
+            </tr>
         </tbody>
     </table>
-
+{{ dump(game.users) }}
     <ul>
         <li>
             <a href="{{ path('game_index') }}">Back to the list</a>
