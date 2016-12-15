@@ -1,29 +1,55 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h4 class="row">
-        <h6>
-            Votre profil
-        </h6>
-    </div>
-    <div class="row contenu">
-        <div class="col offset-s1 s10">
-            <div class="col offset-s10 s1 divPhotoProfil">
-                <img class="photoProfil" src="{{ asset ('bundles/findme/images/chevre.jpg') }}" alt="profil">
-            </div>
-            <div class="col s12 left">
-                Nom :
-            </div>
-            <div class="col s12 left">
-                Points :
-            </div>
-            <div class="col s12 left">
-                Classement :
-            </div>
-            <div class="col s12 left">
-                Groupes :
+    {{ parent() }}
+
+    <div class="container">
+        <div class="row">
+            <h4 class="col offset-s1 s11">VOTRE PROFIL</h4>
+        </div>
+        <div class="row contenu">
+            <div class="col s11">
+                <div class="col offset-s4 s4 divPhotoProfil">
+                    <img class="photoProfil z-depth-2" src="{{ asset ('bundles/findme/images/chevre.jpg') }}" alt="profil">
+                </div>
+
+                <blockquote>
+                    <div class="col s12 left">
+                        <h5 class="ss-titre">Nom : </h5>
+                        <h5 class="content">WildCodeSchool</h5>
+                        {#{{ user.username }}#}
+                    </div>
+                    <div class="col s12 left">
+                        <h5 class="ss-titre"> Points : </h5>
+                        <h5 class="content">50</h5>
+                        {#{{ player.points }}#}
+                    </div>
+                    <div class="col s12 left">
+                        <h5 class="ss-titre">Classement : </h5>
+                        <h5 class="content">120 </h5>
+                    </div>
+                    <div class="col s12 left">
+                        <h5 class="ss-titre">Groupes : </h5>
+                        <h5 class="content">Vous ne faites pas encore partie d'un groupe.</h5>
+                    </div>
+                </blockquote>
             </div>
         </div>
     </div>
-    {{ parent() }}
+
+    {#Add a game button#}
+    <a href=" {{ path('game_new') }} " class="btn tooltipped btn-floating btn-large waves-effect waves-light" data-position="bottom" data-delay="50" data-tooltip="Créer une partie">
+        <i class="material-icons">add</i>
+    </a>
+
 {% endblock body %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function(){
+            $('.tooltipped').tooltip({delay: 50});
+        });
+    </script>
+
+{% endblock javascripts %}

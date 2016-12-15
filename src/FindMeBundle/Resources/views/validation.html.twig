@@ -1,19 +1,24 @@
-{#
+
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h4 class="row">
-    <h6>
-        Validation
-    </h6>
+    <div class="row">
+        <h6>
+            Validation
+        </h6>
     </div>
     <div class="row contenu">
         <div class="col offset-s1 s10">
-            <? php
-                $validation = 1;
-                ?>
-           <button><a href="#">Valider</a></button>
+            <p>
+                Proposition de : {{ app.game.user.username }}
+            </p>
+{#
+            Rôle : Meneur
+#}
+
+            <a href="{{ path('game_index') }}"><button>Gagné, rejoignez une nouvelle partie</button></a>
+            <a href="{{ path('find_me_homepage') }}"><button>Perdu, attendez une nouvelle proposition</button></a>
         </div>
     </div>
     {{ parent() }}
-{% endblock body %}#}
+{% endblock body %}

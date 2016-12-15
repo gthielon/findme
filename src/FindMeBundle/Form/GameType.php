@@ -14,9 +14,11 @@ class GameType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder->add('name')
                 ->add('file', FileType::class, array('label' => 'photo', 'required' => true))
                 ->add('indice');
+
     }
     
     /**

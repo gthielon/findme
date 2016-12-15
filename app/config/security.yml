@@ -12,8 +12,11 @@ security:
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
     providers:
+#        in_memory:
+#            memory: ~
         fos_userbundle:
             id: fos_user.user_provider.username
+#            entity: {class User\FindMeBundle\Entity\User, property: username}
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -23,8 +26,7 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
-                # if you are using Symfony < 2.8, use the following config instead:
-                # csrf_provider: form.csrf_provider
+                default_target_path: /presentation
 
             logout:       true
             anonymous:    true
@@ -33,5 +35,5 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/presentation, role: ROLE_ADMIN }
+#        - { path: ^/presentation, role: ROLE_ADMIN }
         - { path: ^/admin/, role: ROLE_ADMIN }
