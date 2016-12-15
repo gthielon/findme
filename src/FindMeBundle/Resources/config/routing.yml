@@ -13,3 +13,8 @@ find_me_profil:
 find_me_partie:
     path:     /partie
     defaults: { _controller: FindMeBundle:Partie:index }
+
+
+find_me_validation:
+    path:     /validation
+    defaults: { _controller: FindMeBundle:Validation:validation }
