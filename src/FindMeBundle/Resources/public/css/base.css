@@ -71,7 +71,7 @@ blockquote {
     margin-bottom:15px;
 }
 
-div > p {
+.textePhoto > p {
     margin-top:50%;
 }
 /****************************************************/
@@ -112,23 +112,29 @@ div > p {
 /****************************************************/
 
 .background-image {
-    /*
-    background-image: url('../images/background.jpg');
-    */
-    background: url('../images/background.jpg') no-repeat center center fixed;
     position: fixed;
     max-width: 100%;
     max-height: 100%;
     z-index: -1;
-    padding:0;
+    padding-top:25px;
 }
 
+.login{
+    background-color: rgba(0,0,0,0.5);
+    padding-bottom:25px;
+    margin-top:0;
+}
 .texteBlanc{
     color:white !important;
 }
 
 .btnLogin{
     margin-top:100px;
+}
+
+.logo {
+    width:5 0%;
+
 }
 
 /****************************************************/

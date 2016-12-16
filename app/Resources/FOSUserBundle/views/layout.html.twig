@@ -1,19 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <img class="background-image" src="{{ asset('bundles/findme/images/background.jpg') }}" alt="photo_fond">
-
-    <div class="container texteBlanc">
-        <buton><a href="{{ path('fos_user_registration_register') }}">Register</a></buton>
+    <img class="background-image" src="{{ asset('bundles/findme/images/background.jpg') }}" alt="background">
+    <div class="container">
+        <div class="center">
+            <a href="{{ path('fos_user_registration_register') }}">S'enregistrer</a>
+        </div>
+        <div class="col s12">
+            <img class="logo" src="{{ asset('bundles/findme/images/findme_logo_vert.png') }}" alt="background">
+        </div>
         <div>
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
                 <a href="{{ path('fos_user_security_logout') }}">
-                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                    {{ 'Se déconnecter'|trans({}, 'FOSUserBundle') }}
                 </a>
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-            {% endif %}
+             {% endif %}
         </div>
 
         {% if app.request.hasPreviousSession %}
