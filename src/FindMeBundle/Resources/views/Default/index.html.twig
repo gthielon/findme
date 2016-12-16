@@ -4,22 +4,23 @@
 <div class="row contenu">
     <div class="col offset-s1 s10">
             <h4>
-                Bienvenue sur Find Me !
+                Bienvenue sur
             </h4>
+            <img class="logo_findme" src="{{ asset('bundles/findme/images/findme_logo_vert.png') }}">
         <p>
-            Le but du jeu est de retrouver le lieu où a été pris une photo.
-            Si c'est votre première partie, lancez le jeu et prenez en photo un indice pour vous retrouver.
-            Les autres joueurs devront retrouver où a été prise votre photo grâce à votre indice.
+            <strong>Le but du jeu est de retrouver le lieu où a été pris une photo.</strong><br>
+            Pour une première visite, vous devez rejoindre une <strong>partie en cours</strong> et vous deviendrez enquêteur.
+            Dénicher le lieu à trouver en postant une photo afin que le Meneur puisse approuver votre réponse.
+            Si votre réponse est approuvée, bien joué, vous passez Meneur à votre tour.
+            Si ce n'est pas validé, essayez encore.
+        </p>
+        <p>
+            En tant que <strong>MENEUR</strong> vous pouvez lancez une <strong>nouvelle partie</strong> en publiant une photo.
+            Les enquêteurs devront retrouver où a été prise votre photo. N'hésitez pas à poster des indices que les enquêteurs pourront acheter si besoin.
             Soyez imaginatif, il ne faut pas que cela soit trop facile !
         </p>
         <p>
-            Si vous rejoignez une partie, à vous de trouver le lieu de la photo.
-            Si vous le trouvez, prenez en photo le lieu afin que le Meneur puisse approuver votre réponse.
-            Si votre réponse est approuvée, bien joué, vous passez Meneur à votre tour.
-            Si ce n'est pas validé, essayez encore
-        </p>
-        <p>
-            A vous de jouer !
+            <strong>A vous de jouer !</strong>
         </p>
         <a class="waves-effect waves-light btn" href="{{ path('find_me_start') }}">Commencer le jeu</a>   {#  rediriger vers la liste des parties  #}
     </div>

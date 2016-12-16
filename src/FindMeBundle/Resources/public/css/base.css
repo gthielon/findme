@@ -11,7 +11,7 @@ nav{
 }
 
 .col{
-    text-align: center;
+    text-align: justify;
 }
 
 .row{
@@ -37,6 +37,20 @@ i{
 
 .contenu{
     margin-bottom:25%;
+}
+
+.logo_findme {
+    width:50%;
+    margin-left: 25%;
+}
+
+.center {
+    text-align: center;
+    margin-bottom: 10%;
+}
+
+strong {
+    text-align: center;
 }
 
 .left{
@@ -103,8 +117,9 @@ blockquote {
     background-color: #757575;
 }
 
-.btn {
+.btn plus {
     margin-bottom:25px;
+    left: 45px;
 }
 
 /****************************************************/

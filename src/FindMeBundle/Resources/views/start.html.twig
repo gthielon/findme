@@ -5,24 +5,25 @@
         <div class="col offset-s1 s10">
             <div class="col s12">
                 <h4>
-                    Bienvenue sur Find Me ! {{ app.user.id }}
+                    Bienvenue sur Find Me ! <br>
+                    <em>{{ app.user.username }}</em>
                 </h4>
             </div>
             <div class="col offset-s1 s10 center">
-                <p>
-                    Voulez-vous proposez un indice ou enquêter ?
-                </p>
+                <h6><strong>Voulez-vous proposez un indice ou enquêter ?</strong></h6>
             </div>
-            <div class="col offset-s1 s10">
-                <a class="waves-effect waves-light btn" href="{{ path('game_new') }}">
-                    Meneur
-                </a>    {#  rediriger vers la liste des parties  #}
-            </div>
-            <div class="col offset-s1 s10">
-                <a class="waves-effect waves-light btn" href="{{ path('game_index') }}">
-                    Enquêteur
-                </a>
-            </div>
+        </div>
+    </div>
+    <div class="row contenu">
+        <div class="col s5 ">
+            <a class="waves-effect waves-light btn" href="{{ path('game_new') }}">
+                Meneur
+            </a>    {#  rediriger vers la liste des parties  #}
+        </div>
+        <div class="col s5 ">
+            <a class="waves-effect waves-light btn" href="{{ path('game_index') }}">
+                Enquêteur
+            </a>
         </div>
     </div>
     {{ parent() }}
