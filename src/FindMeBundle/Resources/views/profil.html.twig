@@ -5,23 +5,23 @@
 
     <div class="container">
         <div class="row">
-            <h4 class="col offset-s1 s11">VOTRE PROFIL</h4>
+            <h4 class="col offset-s1 s11 center">VOTRE PROFIL</h4>
         </div>
         <div class="row contenu">
             <div class="col s11">
                 <div class="col offset-s5 s4 divPhotoProfil">
-                    <img class="photoProfil z-depth-2" src="{{ asset ('bundles/findme/images/chevre.jpg') }}" alt="profil">
+                    <img class="photoProfil z-depth-2" src="{{ asset ('bundles/findme/images/deer.jpg') }}" alt="profil">
                 </div>
 
                 <blockquote>
                     <div class="col s12 left">
                         <h5 class="ss-titre">Nom : </h5>
-                        <h5 class="content">WildCodeSchool</h5>
+                        <h5 class="content">{{ app.user.username }}</h5>
                         {#{{ user.username }}#}
                     </div>
                     <div class="col s12 left">
                         <h5 class="ss-titre"> Points : </h5>
-                        <h5 class="content">50</h5>
+                        <h5 class="content">{{ app.user.points }}</h5>
                         {#{{ player.points }}#}
                     </div>
                     <div class="col s12 left">
@@ -38,7 +38,7 @@
     </div>
 
     {#Add a game button#}
-    <a href=" {{ path('game_new') }} " class="btn tooltipped btn-floating btn-large waves-effect waves-light" data-position="bottom" data-delay="50" data-tooltip="Créer une partie">
+    <a href=" {{ path('game_new') }} " class="btn tooltipped btn-floating btn-large waves-effect waves-light plus" data-position="bottom" data-delay="50" data-tooltip="Créer une partie">
         <i class="material-icons">add</i>
     </a>
 

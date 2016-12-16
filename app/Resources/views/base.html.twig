@@ -48,7 +48,8 @@
             <ul id="dropdown1" class="dropdown-content">
                 <li><a href=" {{ path('find_me_homepage') }} ">Règles du jeu</a></li>
                 <li><a href="#!">Avoir un indice</a></li>
-                <li><a href="#!">Liste des parties</a></li>
+                <li><a href="{{ path('imagesend_new') }}" class="btn tooltipped btn-floating btn-large waves-effect waves-light plus" data-position="bottom" data-delay="50" data-tooltip="Prendre une photo">Liste de parties</a></li>
+                {#<li><a href="{{ path('') }}">Accueil</a></li>#}
             </ul>
         </div>
     </nav>
