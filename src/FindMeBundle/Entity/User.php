@@ -183,6 +183,8 @@ class User extends BaseUser
         return $this->clusters;
     }
 
+
+
     /**
      * Add game
      *
@@ -215,5 +217,44 @@ class User extends BaseUser
     public function getGames()
     {
         return $this->games;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $imageSends;
+
+
+    /**
+     * Add imageSend
+     *
+     * @param \FindMeBundle\Entity\ImageSend $imageSend
+     *
+     * @return User
+     */
+    public function addImageSend(\FindMeBundle\Entity\ImageSend $imageSend)
+    {
+        $this->imageSends[] = $imageSend;
+
+        return $this;
+    }
+
+    /**
+     * Remove imageSend
+     *
+     * @param \FindMeBundle\Entity\ImageSend $imageSend
+     */
+    public function removeImageSend(\FindMeBundle\Entity\ImageSend $imageSend)
+    {
+        $this->imageSends->removeElement($imageSend);
+    }
+
+    /**
+     * Get imageSends
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImageSends()
+    {
+        return $this->imageSends;
     }
 }

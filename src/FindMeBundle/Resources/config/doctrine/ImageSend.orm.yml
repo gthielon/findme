@@ -1,0 +1,25 @@
+FindMeBundle\Entity\ImageSend:
+    type: entity
+    table: null
+    repositoryClass: FindMeBundle\Repository\ImageSendRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            column: Name
+
+    lifecycleCallbacks: {  }
+
+    manyToOne:
+        image:
+            targetEntity: FindMeBundle\Entity\User
+            inversedBy: imageSends
+        imageSends:
+            targetEntity: FindMeBundle\Entity\Game
+            inversedBy: image

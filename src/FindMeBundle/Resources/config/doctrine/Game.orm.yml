@@ -25,6 +25,11 @@ FindMeBundle\Entity\Game:
         postUpdate: [ upload ]
         postRemove: [ removeUpload ]
 
+    oneToMany:
+        imageSends:
+            targetEntity: FindMeBundle\Entity\ImageSend
+            mappedBy: image
+
     manyToOne:
         winner:
             targetEntity: User
@@ -35,3 +40,4 @@ FindMeBundle\Entity\Game:
         level:
             targetEntity: Level
             inversedBy: levels
+

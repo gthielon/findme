@@ -1,3 +1,7 @@
+find_me_login:
+    path: /
+    defaults: { _controller: FindMeBundle:Security:login }
+
 find_me_game:
     resource: "@FindMeBundle/Resources/config/routing/game.yml"
     prefix:   /game

@@ -19,6 +19,9 @@ FindMeBundle\Entity\User:
         authors:
             targetEntity: FindMeBundle\Entity\Game
             mappedBy: author
+        imageSends:
+            targetEntity: FindMeBundle\Entity\ImageSend
+            mappedBy: image
 
     manyToMany:
         clusters:

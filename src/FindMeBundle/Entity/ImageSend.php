@@ -1,0 +1,112 @@
+<?php
+
+namespace FindMeBundle\Entity;
+
+/**
+ * ImageSend
+ */
+class ImageSend
+{
+    /**
+     * @var int
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var string
+     */
+    private $image;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return ImageSend
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return ImageSend
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+    /**
+     * @var \FindMeBundle\Entity\Game
+     */
+    private $imageSends;
+
+
+    /**
+     * Set imageSends
+     *
+     * @param \FindMeBundle\Entity\Game $imageSends
+     *
+     * @return ImageSend
+     */
+    public function setImageSends(\FindMeBundle\Entity\Game $imageSends = null)
+    {
+        $this->imageSends = $imageSends;
+
+        return $this;
+    }
+
+    /**
+     * Get imageSends
+     *
+     * @return \FindMeBundle\Entity\Game
+     */
+    public function getImageSends()
+    {
+        return $this->imageSends;
+    }
+}

@@ -2,6 +2,7 @@
 
 {% block body %}
     <h1>Game</h1>
+
     <table>
         <tbody>
             <tr>
@@ -14,7 +15,7 @@
             </tr>
             <tr>
                 <th>Photo</th>
-                <td>{{ game.photo }}</td>
+                <td><img src="{{ asset('/uploads/photo/') }}{{ game.photo }}" alt="{{ game.photo }}"></td>
             </tr>
             <tr>
                 <th>Indice</th>
@@ -22,15 +23,14 @@
             </tr>
             <tr>
                 <th>Participants</th>
-
+                {#{% for user in game.users %}
+                    <td>
+                        {{ user.username }}
+                    </td>
+                {% endfor %}#}
             </tr>
         </tbody>
     </table>
-
-    {#{% for user in game.users %}#}
-        {#{{ user.username }}#}
-    {#{% endfor %}#}
-
     <ul>
         <li>
             <a href="{{ path('game_index') }}">Back to the list</a>
