@@ -30,6 +30,7 @@ class User extends BaseUser
 /*    GENERATED CODE*/
 
 
+
     /**
      * @var integer
      */
@@ -49,6 +50,11 @@ class User extends BaseUser
      * @var \Doctrine\Common\Collections\Collection
      */
     private $clusters;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $games;
 
 
     /**
@@ -176,10 +182,7 @@ class User extends BaseUser
     {
         return $this->clusters;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $games;
+
 
 
     /**
@@ -214,5 +217,44 @@ class User extends BaseUser
     public function getGames()
     {
         return $this->games;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $imageSends;
+
+
+    /**
+     * Add imageSend
+     *
+     * @param \FindMeBundle\Entity\ImageSend $imageSend
+     *
+     * @return User
+     */
+    public function addImageSend(\FindMeBundle\Entity\ImageSend $imageSend)
+    {
+        $this->imageSends[] = $imageSend;
+
+        return $this;
+    }
+
+    /**
+     * Remove imageSend
+     *
+     * @param \FindMeBundle\Entity\ImageSend $imageSend
+     */
+    public function removeImageSend(\FindMeBundle\Entity\ImageSend $imageSend)
+    {
+        $this->imageSends->removeElement($imageSend);
+    }
+
+    /**
+     * Get imageSends
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImageSends()
+    {
+        return $this->imageSends;
     }
 }
