@@ -128,7 +128,9 @@ blockquote {
 
 .background-image {
     position: fixed;
+    /*
     max-width: 100%;
+    */
     max-height: 100%;
     z-index: -1;
     padding-top:25px;
@@ -163,4 +165,12 @@ blockquote {
     margin-top:5px;
     margin-bottom: 10px;
     align-content: center;
+}
+
+/****************************************************/
+/*********************VALIDATION*********************/
+/****************************************************/
+
+.card-action{
+    padding-bottom: 50px;
 }
