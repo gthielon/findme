@@ -42,7 +42,7 @@ class GameController extends Controller
             $em->persist($game);
             $em->flush($game);
 
-            return $this->redirectToRoute('game_show', array('id' => $game->getId()));
+            return $this->redirectToRoute('game_index', array('id' => $game->getId()));
         }
 
         return $this->render('game/new.html.twig', array(

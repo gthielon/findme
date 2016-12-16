@@ -5,7 +5,7 @@
 nav{
     position: fixed;
     bottom: 0;
-    background-color:rgba(218,221,229,0.5);
+    background-color:rgba(218,221,229,0.8);
     box-shadow: none;
     margin-top:50px;
 }
@@ -122,6 +122,13 @@ blockquote {
     left: 45px;
 }
 
+.btnStart{
+    margin-top:0px;
+}
+
+.btnSolution{
+    font-size:12px;
+}
 /****************************************************/
 /***********************LOGIN************************/
 /****************************************************/
@@ -139,19 +146,19 @@ blockquote {
 .login{
     background-color: rgba(0,0,0,0.5);
     padding-bottom:25px;
-    margin-top:0;
+    padding-top:0;
 }
 .texteBlanc{
     color:white !important;
 }
 
 .btnLogin{
-    margin-top:100px;
+    margin-top:25px;
 }
 
 .logo {
     width:50%;
-
+    text-align:center;
 }
 
 /****************************************************/
