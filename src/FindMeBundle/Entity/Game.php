@@ -66,6 +66,7 @@ class Game
         }
     }
 
+
     // generate code
     /**
      * @var integer

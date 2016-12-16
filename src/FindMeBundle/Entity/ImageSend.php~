@@ -7,6 +7,29 @@ namespace FindMeBundle\Entity;
  */
 class ImageSend
 {
+    public $file;
+
+    protected function getUploadDir()
+    {
+        return 'uploads/imageSends';
+    }
+
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../web/'.$this->getUploadDir();
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->image ? null : $this->getUploadDir().'/'.$this->image;
+    }
+
+    public function getAbsolutePath()
+    {
+        return null === $this->image ? null : $this->getUploadRootDir().'/'.$this->image;
+    }
+
+
     /**
      * @var int
      */
@@ -79,5 +102,34 @@ class ImageSend
     public function getImage()
     {
         return $this->image;
+    }
+    /**
+     * @var \FindMeBundle\Entity\Game
+     */
+    private $imageSends;
+
+
+    /**
+     * Set imageSends
+     *
+     * @param \FindMeBundle\Entity\Game $imageSends
+     *
+     * @return ImageSend
+     */
+    public function setImageSends(\FindMeBundle\Entity\Game $imageSends = null)
+    {
+        $this->imageSends = $imageSends;
+
+        return $this;
+    }
+
+    /**
+     * Get imageSends
+     *
+     * @return \FindMeBundle\Entity\Game
+     */
+    public function getImageSends()
+    {
+        return $this->imageSends;
     }
 }

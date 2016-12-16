@@ -14,7 +14,12 @@ FindMeBundle\Entity\ImageSend:
             length: 255
             column: Name
 
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks:
+        prePersist: [ preUpload, setCreatedAtValue, setExpiresAtValue ]
+        preUpdate: [ preUpload, setUpdatedAtValue ]
+        postPersist: [ upload ]
+        postUpdate: [ upload ]
+        postRemove: [ removeUpload ]
 
     manyToOne:
         image:

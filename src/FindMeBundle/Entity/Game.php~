@@ -260,4 +260,50 @@ class Game
     {
         return $this->photo;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $imageSends;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->imageSends = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add imageSend
+     *
+     * @param \FindMeBundle\Entity\ImageSend $imageSend
+     *
+     * @return Game
+     */
+    public function addImageSend(\FindMeBundle\Entity\ImageSend $imageSend)
+    {
+        $this->imageSends[] = $imageSend;
+
+        return $this;
+    }
+
+    /**
+     * Remove imageSend
+     *
+     * @param \FindMeBundle\Entity\ImageSend $imageSend
+     */
+    public function removeImageSend(\FindMeBundle\Entity\ImageSend $imageSend)
+    {
+        $this->imageSends->removeElement($imageSend);
+    }
+
+    /**
+     * Get imageSends
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImageSends()
+    {
+        return $this->imageSends;
+    }
 }
