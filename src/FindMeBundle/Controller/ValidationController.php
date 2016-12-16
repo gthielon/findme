@@ -15,9 +15,11 @@ class ValidationController extends Controller{
 
     public function validationAction()
     {
-        $validator = Validation::createValidator();
-        return $this->render('FindMeBundle::validation.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $imageSends = $em->getRepository('FindMeBundle:ImageSend')->findAll();
 
-
+        return $this->render('FindMeBundle::validation.html.twig', array(
+            'imageSends' => $imageSends,
+        ));
     }
 }
