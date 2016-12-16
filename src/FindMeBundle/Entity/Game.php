@@ -66,6 +66,7 @@ class Game
         }
     }
 
+
     // generate code
     /**
      * @var integer
@@ -76,11 +77,6 @@ class Game
      * @var string
      */
     private $name;
-
-    /**
-     * @var string
-     */
-    private $photo;
 
     /**
      * @var string
@@ -101,6 +97,13 @@ class Game
      * @var \FindMeBundle\Entity\Level
      */
     private $level;
+
+
+    /**
+     * @var string
+     */
+    private $photo;
+
 
 
     /**
@@ -137,29 +140,6 @@ class Game
         return $this->name;
     }
 
-    /**
-     * Set photo
-     *
-     * @param string $photo
-     *
-     * @return Game
-     */
-    public function setPhoto($photo)
-    {
-        $this->photo = $photo;
-
-        return $this;
-    }
-
-    /**
-     * Get photo
-     *
-     * @return string
-     */
-    public function getPhoto()
-    {
-        return $this->photo;
-    }
 
     /**
      * Set indice
@@ -255,5 +235,76 @@ class Game
     public function getLevel()
     {
         return $this->level;
+    }
+
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     *
+     * @return Game
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return string
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $imageSends;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->imageSends = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add imageSend
+     *
+     * @param \FindMeBundle\Entity\ImageSend $imageSend
+     *
+     * @return Game
+     */
+    public function addImageSend(\FindMeBundle\Entity\ImageSend $imageSend)
+    {
+        $this->imageSends[] = $imageSend;
+
+        return $this;
+    }
+
+    /**
+     * Remove imageSend
+     *
+     * @param \FindMeBundle\Entity\ImageSend $imageSend
+     */
+    public function removeImageSend(\FindMeBundle\Entity\ImageSend $imageSend)
+    {
+        $this->imageSends->removeElement($imageSend);
+    }
+
+    /**
+     * Get imageSends
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImageSends()
+    {
+        return $this->imageSends;
     }
 }

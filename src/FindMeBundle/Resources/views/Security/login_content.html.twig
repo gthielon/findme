@@ -4,21 +4,29 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
+<div class="front">
 <form action="{{ path("fos_user_security_check") }}" method="post">
+    <div class="login texteBlanc">
     {% if csrf_token %}
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-    {% endif %}
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        {% endif %}
+        <div class="input-field col s6">
+            <i class="material-icons prefix">perm_identity</i><input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+        </div>
+        <div class="input-field col s6">
+            <i class="material-icons prefix">lock</i><input type="password" id="password" name="_password" required="required" />
+        </div>
+        <div class="input-field col s6">
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+            <label for="remember_me">{{ 'Rester enregistré'|trans }}</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col offset-s1 s10">
+            <a class="waves-effect waves-light btn btnLogin"><input type="submit" id="_submit" name="_submit" value="{{ 'Se connecter'|trans }}" /></a>
+        </div>
+    </div>
 
-    <label for="username">{{ 'security.login.username'|trans }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
-
-    <label for="password">{{ 'security.login.password'|trans }}</label>
-    <input type="password" id="password" name="_password" required="required" />
-
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
 </form>
 
-
+</div>

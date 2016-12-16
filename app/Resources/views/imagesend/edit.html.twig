@@ -1,8 +1,7 @@
 {% extends 'base.html.twig' %}
 
-
 {% block body %}
-    <h1>Game edit</h1>
+    <h1>Imagesend edit</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
@@ -11,7 +10,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('game_index') }}">Back to the list</a>
+            <a href="{{ path('imagesend_index') }}">Back to the list</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
@@ -19,6 +18,4 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
-    {{ parent() }}
-
 {% endblock %}

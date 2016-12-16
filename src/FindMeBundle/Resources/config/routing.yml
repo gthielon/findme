@@ -6,6 +6,10 @@ find_me_game:
     resource: "@FindMeBundle/Resources/config/routing/game.yml"
     prefix:   /game
 
+find_me_image:
+    resource: "@FindMeBundle/Resources/config/routing/imagesend.yml"
+    prefix:   /image
+
 find_me_homepage:
     path:     /presentation
     defaults: { _controller: FindMeBundle:Default:index }
