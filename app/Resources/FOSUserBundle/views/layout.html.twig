@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
+    <img class="background-image" src="{{ asset('bundles/findme/images/background.jpg') }}" alt="photo_fond">
+
+    <div class="container texteBlanc">
         <buton><a href="{{ path('fos_user_registration_register') }}">Register</a></buton>
         <div>
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}

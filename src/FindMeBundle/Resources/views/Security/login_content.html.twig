@@ -4,6 +4,7 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
+<div class="front">
 <form action="{{ path("fos_user_security_check") }}" method="post">
     {% if csrf_token %}
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
@@ -18,7 +19,12 @@
     <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
     <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
 
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+    <div class="row">
+        <div class="col offset-s1 s10">
+            <a class="waves-effect waves-light btn btnLogin"><input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" /></a>
+        </div>
+    </div>
+
 </form>
 
-
+</div>

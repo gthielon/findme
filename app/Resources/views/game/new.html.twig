@@ -1,16 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Game creation</h1>
+    <h4>Créer une nouvelle partie</h4>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('game_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    <div class="row">
+        <div class="col offset-s1 s10 left">
+            <div class="Margin15">
+                Nom de la partie
+                {{ form_errors(form.name) }}
+                {{ form_widget(form.name) }}
+            </div>
+            <div class="Margin15">
+                Votre image
+                {{ form_errors(form.file) }}
+                {{ form_widget(form.file) }}
+            </div>
+            <div class="Margin15">
+                Votre indice
+                {{ form_errors(form.indice) }}
+                {{ form_widget(form.indice) }}
+            </div>
+            <div class="col s12">
+                <a class="waves-effect waves-light btn"><input type="submit" value="Lancer la partie" /></a>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{{ parent() }}
 {% endblock %}
