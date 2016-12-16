@@ -4,6 +4,7 @@ namespace FindMeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use FindMeBundle\Entity\Player;
 
 class ProfilController extends Controller
 {
@@ -11,6 +12,7 @@ class ProfilController extends Controller
     {
         return $this->render('@FindMe/profil.html.twig');
     }
+
 
 //    Add points to winner when the game is validated
 //    public function addPoints(Request $request)
